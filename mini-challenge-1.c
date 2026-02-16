@@ -10,6 +10,12 @@ int main(int argc, char **argv) {
         printf("Memory allocation failed\n");
         return 1;
     }
+    if (argc < 2) {
+        printf("Please type a name as a command-line argument.\n");
+        free(str);
+        str = NULL;
+        return 1;
+    }
     strcpy(str, argv[1]);
 
     printf("Hello, %s! \n", str);
