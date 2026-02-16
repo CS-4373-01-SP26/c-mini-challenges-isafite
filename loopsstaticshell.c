@@ -5,11 +5,12 @@
 
 int main(int argc, char **argv) {
   int i,j;
-  int n = 128;
+  int n = (argc > 1) ? atoi(argv[1]) : 128; // read from the command line; default is 128
   double sum;
   clock_t end, start;
-  double arr[128][128];
-  
+  double arr[n][n];
+  printf("n: %d\n", n);
+
 // THIS FILLS THE MATRIX WITH NUMBERS
   for (i=0; i<n; i++)
     for (j=0; j<n; j++)

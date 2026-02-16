@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
   int i,j;
-  int n = 128;
+  int n = (argc > 1) ? atoi(argv[1]) : 128; // read from the command line; default is 128
   double sum;
   clock_t end, start;
   double *arr = malloc(n*n*sizeof(double));
@@ -36,8 +36,10 @@ int main(int argc, char **argv) {
       sum += arr[i*n + j];
   end = clock();
 
-  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+  printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
 
+  free(arr);
+  arr = NULL;
   return 0;
 }
 
