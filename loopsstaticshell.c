@@ -1,4 +1,7 @@
 //PLACE YOUR INCLUDE STATEMENTS HERE
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
 
 int main(int argc, char **argv) {
   int i,j;
@@ -16,15 +19,22 @@ int main(int argc, char **argv) {
 
 // ROW MAJOR WORK
 // YOU'LL NEED TO TIME IT
+start = clock();
 for (i = 0; i<n; i++) // iterate over rows 
   for (j = 0; j<n; j++) // iterate over columns 
     sum += arr[i][j];
+end = clock();
 
-// NOTE:  YOU'LL NEED TO PROVIDE MEANING TO end AND start
-  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
 
 //ADD YOUR COLUMN MAJOR WORK
-// YOU'LL NEED TO TIME IT
+start = clock();
+for (j = 0; j<n; j++) // iterate over columns 
+  for (i = 0; i<n; i++) // iterate over rows 
+    sum += arr[i][j];
+end = clock();
+
+printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
 
   return 0;
 }
